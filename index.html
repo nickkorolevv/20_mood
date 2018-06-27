@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>Настроение</title>
+  <link rel="icon" href="img/favicon.png">
+
   <script id="quotes_json" type="application/json">
     [
       {
@@ -12,14 +14,67 @@
         "phrase": "Собираюсь жить вечно, пока всё идёт нормально"
       },
       {
-        "phrase": "Вывеска над кафе — '\u003cМы открылись\u003e'. Что-то не так. Где же '\u003c/Мы открылись\u003e'?"
+        "phrase": "Вывеска над кафе — 'Мы открылись'. Что-то не так. Где же 'Мы открылись'?"
       },
       {
         "phrase": "Если ты будешь усердно работать по 8 часов в день, то обязательно станешь боссом и начнешь работать по 12"
+      },
+      {
+        "phrase": "Снова пришёл пресс-релиз про самое яркое событие лета. А ведь только июнь! К августу, если эскалация яркости не прекратится, мы ослепнем."
+      },
+      {
+        "phrase": "Такое сильное похмелье, что стою на остановке с одними 100летними бабками и, кажется, с этой компании я к смерти ближе всех"
+      },
+      {
+        "phrase": "Охотник на существ с головой голого оловянного вола — голоолововологоловолов."
+      },
+      {
+        "phrase": "Такое ощущение, что жизнь - это какая-то очень прикольная игра, а я компьютер, который ее не тянет."
       }
     ]
   </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script>
+  var quotes = JSON.parse($("#quotes_json").html());
+  var quote = quotes[Math.floor(Math.random() * quotes.length)];
+  $(function () {
+  var getElem = $("#mood").text(quote.phrase);
+  });
+  $(function(){
+    var nextJoke = $("#joke").click(function(){
+    var quote = quotes[Math.floor(Math.random() * quotes.length)];
+    $("#mood").text(quote.phrase);
+    });
+  });
+
+</script>
+<style>
+  button{border-radius: 5px;
+         background: #567ca4;
+         cursor: pointer;
+         font-size: 100%;
+         color: white;}
+  div {font-size: 120%;
+       height: 50px;
+       top: 10px;
+       border: 2px solid #567ca4;
+       width: 95%;
+       border-radius: 5px;
+       padding: 10px;}
+  header {width: 95%;
+          background: #567ca4;
+          height: 50px;
+          font-size: 200%;
+          color: white;
+          padding: 10px;
+          border-radius: 5px;}
+  body {background-color: #edeef0}
+</style>
+  <meta charset="utf-8">
 </head>
 <body>
+<header>Шутка дня</header>
+  <div id="mood"> </div>
+  <button id="joke">Далее</button>
 </body>
 </html>
