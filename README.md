@@ -1,7 +1,7 @@
-# Site for the Mood
+# Сайт-вдохновение
 
-[TODO. There will be project description]
+Сайт, который выдает смешные фразы находится по [ссылке](https://nickkorolevv.github.io/20_mood/index.html)
 
-# Project Goals
+# Цели проекта
 
-The code is written for educational purposes. Training course for web-developers - [DEVMAN.org](https://devman.org)
+Проект написан в образовательных целях в рамках курса веб-разработчиков - [DEVMAN.org](https://devman.org)
