@@ -14,7 +14,7 @@
         "phrase": "Собираюсь жить вечно, пока всё идёт нормально"
       },
       {
-        "phrase": "Вывеска над кафе — 'Мы открылись'. Что-то не так. Где же 'Мы открылись'?"
+        "phrase": "Вывеска над кафе — '\u003cМы открылись\u003e'. Что-то не так. Где же '\u003c/Мы открылись\u003e'?"
       },
       {
         "phrase": "Если ты будешь усердно работать по 8 часов в день, то обязательно станешь боссом и начнешь работать по 12"
@@ -35,33 +35,40 @@
   </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script>
-  var quotes = JSON.parse($("#quotes_json").html());
-  var quote = quotes[Math.floor(Math.random() * quotes.length)];
-  $(function () {
-  var getElem = $("#mood").text(quote.phrase);
-  });
-  $(function(){
-    var nextJoke = $("#joke").click(function(){
+  function getQuote(){
+    var quotes = JSON.parse($("#quotes_json").html());
     var quote = quotes[Math.floor(Math.random() * quotes.length)];
-    $("#mood").text(quote.phrase);
+    return quote;
+  }
+  $(function firstQuotePut() {
+    var quote = getQuote();
+    var getElem = $("#mood").text(quote.phrase);
+  });
+  $(function nextQuote(){
+    var nextJoke = $("#joke").click(function(){
+    var activeQuote = document.querySelector("#mood");
+    var quote = getQuote();
+    if (activeQuote.textContent != quote.phrase) {
+      $("#mood").text(quote.phrase);}
     });
   });
 
+
 </script>
 <style>
-  button{border-radius: 5px;
+  #joke {border-radius: 5px;
          background: #567ca4;
          cursor: pointer;
          font-size: 100%;
          color: white;}
-  div {font-size: 120%;
-       height: 50px;
-       top: 10px;
-       border: 2px solid #567ca4;
-       width: 95%;
-       border-radius: 5px;
-       padding: 10px;}
-  header {width: 95%;
+  #mood {font-size: 120%;
+         height: 50px;
+         top: 10px;
+         border: 2px solid #567ca4;
+         width: 95%;
+         border-radius: 5px;
+         padding: 10px;}
+  .header {width: 95%;
           background: #567ca4;
           height: 50px;
           font-size: 200%;
@@ -73,7 +80,7 @@
   <meta charset="utf-8">
 </head>
 <body>
-<header>Шутка дня</header>
+<header class="header">Шутка дня</header>
   <div id="mood"> </div>
   <button id="joke">Далее</button>
 </body>
